@@ -23,8 +23,9 @@ class Probability {
     }
 
     Probability or(Probability anotherProbability) throws ProbabilityException {
-        Probability probabilityOfBoth = this.and(anotherProbability);
-        return new Probability(UPPER_BOUND - probabilityOfBoth.value);
+        double totalProbabilityValue = this.value + anotherProbability.value;
+        Probability compoundProbability = and(anotherProbability);
+        return new Probability(totalProbabilityValue - compoundProbability.value);
     }
 
     @Override
