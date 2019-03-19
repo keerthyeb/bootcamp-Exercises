@@ -31,12 +31,21 @@ class ProbabilityTest {
     }
 
     @Test
-    void shouldGiveTheProbabilityOfGettingBoth() throws ProbabilityException {
+    void shouldGiveTheProbabilityOfGettingBothOccurances() throws ProbabilityException {
         Probability probability = new Probability(0.5);
         Probability anotherProbability = new Probability(0.3);
         Probability probabilityOfGettingBoth = probability.and(anotherProbability);
         Probability expectedProbability = new Probability(.15);
         assertEquals(expectedProbability, probabilityOfGettingBoth);
+    }
+
+    @Test
+    void shouldGiveTheProbabilityOfGettingAtleastOneOccurance() throws ProbabilityException {
+        Probability probability = new Probability(0.5);
+        Probability anotherProbability = new Probability(0.5);
+        Probability probabilityOfGettingAtleastOne = probability.or(anotherProbability);
+        Probability expectedProbability = new Probability(.75);
+        assertEquals(expectedProbability, probabilityOfGettingAtleastOne);
     }
 
 

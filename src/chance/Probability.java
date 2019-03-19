@@ -3,7 +3,7 @@ package chance;
 class Probability {
     private static final int LOWER_BOUND = 0;
     private static final int UPPER_BOUND = 1;
-    private double value;
+    private final double value;
 
     Probability(double value) throws ProbabilityException {
         validate(value);
@@ -20,6 +20,11 @@ class Probability {
 
     Probability and(Probability anotherProbability) throws ProbabilityException {
         return new Probability(this.value * anotherProbability.value);
+    }
+
+    Probability or(Probability anotherProbability) throws ProbabilityException {
+        Probability probabilityOfBoth = this.and(anotherProbability);
+        return new Probability(UPPER_BOUND - probabilityOfBoth.value);
     }
 
     @Override
