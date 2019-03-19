@@ -1,8 +1,8 @@
 package chance;
 
 class Probability {
-    public static final int LOWER_BOUND = 0;
-    public static final int UPPER_BOUND = 1;
+    private static final int LOWER_BOUND = 0;
+    private static final int UPPER_BOUND = 1;
     private double value;
 
     Probability(double value) throws ProbabilityException {
@@ -14,8 +14,12 @@ class Probability {
         if (value < LOWER_BOUND || value > UPPER_BOUND) throw new ProbabilityException();
     }
 
-    public Probability notGetting() throws ProbabilityException {
+    Probability not() throws ProbabilityException {
         return new Probability(UPPER_BOUND - this.value);
+    }
+
+    Probability and(Probability anotherProbability) throws ProbabilityException {
+        return new Probability(this.value * anotherProbability.value);
     }
 
     @Override

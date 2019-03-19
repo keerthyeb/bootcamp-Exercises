@@ -7,17 +7,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ProbabilityTest {
     @Test
-    @DisplayName("should throw exception when value is negative")
     void shouldThrowExceptionWhenProbabilityIsLessThanLowerBound() {
-        try {
-            new Probability(-1);
-            fail("it should fail");
-        } catch (ProbabilityException e) {
-        }
+        assertThrows(ProbabilityException.class, () -> new Probability(-1));
     }
 
     @Test
-    @DisplayName("should throw exception when value is greater than one")
     void shouldThrowExceptionIfValueIsGreaterThanUpperBound() {
         assertThrows(ProbabilityException.class, () -> new Probability(2));
     }
@@ -31,9 +25,18 @@ class ProbabilityTest {
     @Test
     void shouldGiveTheProbabilityOfNotGetting() throws ProbabilityException {
         Probability probabilityOfGetting = new Probability(0.2);
-        Probability probabilityOfNotGetting = probabilityOfGetting.notGetting();
+        Probability probabilityOfNotGetting = probabilityOfGetting.not();
         Probability expectedProbabilityOfNotGetting = new Probability(0.8);
         assertEquals(expectedProbabilityOfNotGetting, probabilityOfNotGetting);
+    }
+
+    @Test
+    void shouldGiveTheProbabilityOfGettingBoth() throws ProbabilityException {
+        Probability probability = new Probability(0.5);
+        Probability anotherProbability = new Probability(0.3);
+        Probability probabilityOfGettingBoth = probability.and(anotherProbability);
+        Probability expectedProbability = new Probability(.15);
+        assertEquals(expectedProbability, probabilityOfGettingBoth);
     }
 
 
