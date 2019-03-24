@@ -1,6 +1,7 @@
 package matrixProblem;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class IntegerMatrix implements Matrix<Integer> {
 
@@ -29,4 +30,33 @@ public class IntegerMatrix implements Matrix<Integer> {
         }
         return sum;
     }
+
+    public ArrayList<ArrayList<Integer>> getMatrix() {
+        return matrix;
+    }
+
+    public IntegerMatrix transpose() {
+        ArrayList<ArrayList<Integer>> transposeMatrix = new ArrayList<>();
+        for (int row = 0; row < this.matrix.get(0).size(); row++) {
+            transposeMatrix.add(getTransposedRow(row));
+        }
+        return new IntegerMatrix(transposeMatrix);
+    }
+
+    private ArrayList<Integer> getTransposedRow(Integer row) {
+        ArrayList<Integer> resultRow = new ArrayList<>();
+        for (ArrayList<Integer> rowElements : this.matrix) {
+            resultRow.add(rowElements.get(row));
+        }
+        return resultRow;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        IntegerMatrix that = (IntegerMatrix) o;
+        return Objects.equals(matrix, that.matrix);
+    }
+
 }
