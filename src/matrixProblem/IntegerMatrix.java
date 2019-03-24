@@ -31,11 +31,8 @@ public class IntegerMatrix implements Matrix<Integer> {
         return sum;
     }
 
-    public ArrayList<ArrayList<Integer>> getMatrix() {
-        return matrix;
-    }
 
-    public IntegerMatrix transpose() {
+    IntegerMatrix transpose() {
         ArrayList<ArrayList<Integer>> transposeMatrix = new ArrayList<>();
         for (int row = 0; row < this.matrix.get(0).size(); row++) {
             transposeMatrix.add(getTransposedRow(row));
