@@ -1,9 +1,9 @@
 package Shape;
 
-class Dimension {
+class Price {
     private double side;
 
-    Dimension(double side) throws Exception {
+    Price(double side) throws Exception {
         if (side < 0) throw new Exception("invalid side");
         this.side = side;
     }

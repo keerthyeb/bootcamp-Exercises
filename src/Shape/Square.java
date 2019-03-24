@@ -1,9 +1,9 @@
 package Shape;
 
 public class Square implements Shape{
-    private Dimension side;
+    private Price side;
 
-    public Square(Dimension side) {
+    public Square(Price side) {
         this.side = side;
     }
 

@@ -8,11 +8,11 @@ import static org.junit.jupiter.api.Assertions.*;
 class SquareTest {
 
     Square square;
-    Dimension side;
+    Price side;
 
     @BeforeEach
     void setUp() throws Exception {
-        side = new Dimension(10D);
+        side = new Price(10D);
         square = new Square(side);
 
     }

@@ -8,13 +8,13 @@ import static org.junit.jupiter.api.Assertions.*;
 class RectangleTest {
 
     Rectangle rectangle;
-    Dimension length;
-    Dimension breadth;
+    Price length;
+    Price breadth;
 
     @BeforeEach
     void setUp() throws Exception {
-        length = new Dimension(10D);
-        breadth = new Dimension(5D);
+        length = new Price(10D);
+        breadth = new Price(5D);
         rectangle = new Rectangle(length,breadth);
 
     }

@@ -8,14 +8,14 @@ class DimensionTest {
 
     @Test
     void getSide() throws Exception {
-        Dimension side = new Dimension(10);
+        Price side = new Price(10);
         assertEquals(side.getSide(),10);
     }
 
     @Test
     void shouldThrowExceptionIfTheValueIsLessThanZero() {
         assertThrows(Exception.class, ()-> {
-            new Dimension(-1);
+            new Price(-1);
         });
     }
 }

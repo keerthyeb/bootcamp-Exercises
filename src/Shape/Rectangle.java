@@ -1,10 +1,10 @@
 package Shape;
 
 public class Rectangle implements Shape{
-    private Dimension length;
-    private Dimension breadth;
+    private Price length;
+    private Price breadth;
 
-    public Rectangle(Dimension length, Dimension breadth) {
+    public Rectangle(Price length, Price breadth) {
         this.length = length;
         this.breadth = breadth;
     }
