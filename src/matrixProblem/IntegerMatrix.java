@@ -12,22 +12,21 @@ public class IntegerMatrix implements Matrix<Integer> {
 
 
     public IntegerMatrix add(IntegerMatrix integerMatrix) {
-        ArrayList<ArrayList<Integer>> matrix = integerMatrix.getMatrix();
+        ArrayList<ArrayList<Integer>> matrix = integerMatrix.matrix;
         ArrayList<ArrayList<Integer>> sumMatrix = new ArrayList<>();
         int row = matrix.size();
         for (int i = 0; i < row; i++) {
-            ArrayList<Integer> rowMatrix = new ArrayList<>();
-            for (int j = 0; j < row; j++) {
-                int sum = this.matrix.get(i).get(j) + matrix.get(i).get(j);
-                rowMatrix.add(sum);
-            }
-            sumMatrix.add(rowMatrix);
+            sumMatrix.add(addRow(this.matrix.get(i), matrix.get(i)));
         }
         return new IntegerMatrix(sumMatrix);
     }
 
-    ArrayList<ArrayList<Integer>> getMatrix() {
-        return matrix;
+    private ArrayList<Integer> addRow(ArrayList<Integer> firstRow, ArrayList<Integer> secondRow) {
+        int row = firstRow.size();
+        ArrayList<Integer> sum = new ArrayList<>();
+        for (int j = 0; j < row; j++) {
+            sum.add(firstRow.get(j) + secondRow.get(j));
+        }
+        return sum;
     }
-
 }

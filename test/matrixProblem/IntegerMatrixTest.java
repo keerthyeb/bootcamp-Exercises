@@ -18,7 +18,6 @@ class IntegerMatrixTest {
         matrix.add(row);
         IntegerMatrix integerMatrix = new IntegerMatrix(matrix);
         IntegerMatrix actualMatrix = integerMatrix.add(new IntegerMatrix(matrix));
-        System.out.println(actualMatrix.getMatrix());
-        assertEquals(actualMatrix.getMatrix(), actualMatrix.getMatrix());
+        assertEquals(actualMatrix, actualMatrix);
     }
 }
