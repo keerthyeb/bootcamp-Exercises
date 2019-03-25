@@ -8,6 +8,9 @@ import java.util.Arrays;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class IntegerMatrixTest {
+//given
+    //when
+    //then
 
     @Test
     void ShouldAddTwoIntegerMatrix() {
