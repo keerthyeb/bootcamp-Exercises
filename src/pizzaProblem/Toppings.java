@@ -25,4 +25,9 @@ public class Toppings {
         return totalToppingPrice;
     }
 
+    @Override
+    public String toString() {
+        return "Toppings=" + toppings +
+                ", totalToppingPrice=" + totalToppingPrice;
+    }
 }

@@ -29,6 +29,9 @@ public class Price {
         return Objects.equals(this.price, price1.price);
     }
 
-
+    @Override
+    public String toString() {
+        return "" + price ;
+    }
 }
 
